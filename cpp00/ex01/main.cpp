@@ -41,11 +41,11 @@ void	PhoneBook::addContact()
 	{
 		std::cout << "-----------------------------------------------------------------" << std::endl
 					<< "Your phonebook is full!" << std::endl
-					<< "Adding new contact will remove the oldest contact. Are you sure?" << std::endl
-					<< "Enter YES / NO: ";
-		std::getline(std::cin, ans);
+					<< "Adding new contact will remove the oldest contact. Are you sure?" << std::endl;
 		while (1)
 		{
+			std::cout << "Enter YES / NO: ";
+			std::getline(std::cin, ans);
 			if (ans == "YES")
 			{
 				i = 0;
@@ -57,6 +57,7 @@ void	PhoneBook::addContact()
 				std::cout << "Invalid response." << std::endl;
 		}
 	}
+
 	while (1)
 	{
 		if (newContact.addDetails())
@@ -104,26 +105,32 @@ void	PhoneBook::displayContacts()
 
 		if (!isdigit(index) && (index >= 1 && index <= MAX_CONTACTS))
 		{
-			std::cout << "Here IF" << std::endl;
 			tmp = this->contacts[index - 1];
-			std::cout << tmp.getDetails("firstName") << std::endl
-					  << tmp.getDetails("lastName") << std::endl
-					  << tmp.getDetails("nickname") << std::endl;
+			if (tmp.getDetails("firstName") == "")
+			{
+				std::cout << "Empty contact, nothing to be displayed!" << std::endl;
+				break;
+			}
+			std::cout << std::endl
+					  << "---------- " << tmp.getDetails("firstName") << "'s Detail ----------" << std::endl
+					  << "First name: " << tmp.getDetails("firstName") << std::endl
+					  << "Last name: " << tmp.getDetails("lastName") << std::endl
+					  << "Nickname: " << tmp.getDetails("nickname") << std::endl
+					  << "Phone number: " << tmp.getDetails("phoneNumber") << std::endl
+					  << "Darkest secret: " << tmp.getDetails("secret") << std::endl
+					  << std::endl;
 			flag = 0;
 			break;
 		}
 		else
 		{
-			std::cout << "Here ELSE" << std::endl;
 			std::cin.clear();
 			std::cin.ignore(std::numeric_limits<std::streamsize>::max(),'\n');
 			std::cout << "Invalid index! Enter a valid index." << std::endl;
 		}
 	} while (flag != 0);
 	while (std::cin.get() != '\n')
-	{
-		std::cout << "here?";
-		continue;}
+		continue;
 }
 
 std::string	Contact::getDetails(std::string type)
@@ -134,6 +141,10 @@ std::string	Contact::getDetails(std::string type)
 		return (this->lastName);
 	else if (type.compare("nickname") == 0)
 		return (this->nickname);
+	else if (type.compare("phoneNumber") == 0)
+		return (this->phoneNumber);
+	else if (type.compare("secret") == 0)
+		return (this->darkestSecret);
 	return (0);
 }
 
