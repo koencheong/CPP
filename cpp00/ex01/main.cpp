@@ -1,13 +1,16 @@
 #include <iostream>
 #include <string>
+#include <climits>
+#include <iomanip>
+#include <limits>
 
+#define MAX_CONTACTS 3
 
 class Contact
 {
 	public:
-		int		addDetails();
-		void	getDetails(std::string type);
-		
+		int			addDetails();
+		std::string	getDetails(std::string type);
 
 	private:
 		std::string	firstName;
@@ -17,11 +20,12 @@ class Contact
 		std::string darkestSecret;
 };
 
-
 class PhoneBook
 {
 	public:
 		void	addContact();
+		void	displayContacts();
+		std::string	trimString(std::string str);
 
 	private:
 		Contact contacts[8];
@@ -29,18 +33,108 @@ class PhoneBook
 
 void	PhoneBook::addContact()
 {
-	Contact	contact;
-	do
+	Contact	newContact;
+	static int	i;
+	std::string	ans;
+
+	if (i == MAX_CONTACTS)
 	{
-		contact.addDetails();
-	} while (1);
-	
+		std::cout << "-----------------------------------------------------------------" << std::endl
+					<< "Your phonebook is full!" << std::endl
+					<< "Adding new contact will remove the oldest contact. Are you sure?" << std::endl
+					<< "Enter YES / NO: ";
+		std::getline(std::cin, ans);
+		while (1)
+		{
+			if (ans == "YES")
+			{
+				i = 0;
+				break;
+			}
+			else if (ans == "NO")
+				return ;
+			else
+				std::cout << "Invalid response." << std::endl;
+		}
+	}
+	while (1)
+	{
+		if (newContact.addDetails())
+			std::cout << "Details can't leave blank!" << std::endl;
+		else
+			break;
+	}
+	this->contacts[i] = newContact;
+	i++;
 }
 
-void	Contact::getDetails(std::string type)
+std::string	PhoneBook::trimString(std::string str)
+{
+	if (str.length() > 10)
+		str = str.substr(0, 9) + ".";
+	return (str);
+}
+
+void	PhoneBook::displayContacts()
+{
+	Contact	tmp;
+	int	flag;
+
+	tmp = this->contacts[0];
+	flag = 1;
+	
+	std::cout << "|     INDEX|FIRST NAME| LAST NAME|  NICKNAME|" << std::endl;
+	for (int i = 0; i < MAX_CONTACTS; i++)
+	{
+		tmp = this->contacts[i];
+		{
+			std::cout << "|" 
+					  << std::setw(10) << i + 1 << "|"
+					  << std::setw(10) << trimString(tmp.getDetails("firstName")) << "|"
+					  << std::setw(10) << trimString(tmp.getDetails("lastName")) << "|"
+					  << std::setw(10) << trimString(tmp.getDetails("nickname")) << "|"
+					  << std::endl;
+		}
+	}
+	do
+	{
+		int	index;
+		std::cout << "Select an index: ";
+		std::cin >> index;
+
+		if (!isdigit(index) && (index >= 1 && index <= MAX_CONTACTS))
+		{
+			std::cout << "Here IF" << std::endl;
+			tmp = this->contacts[index - 1];
+			std::cout << tmp.getDetails("firstName") << std::endl
+					  << tmp.getDetails("lastName") << std::endl
+					  << tmp.getDetails("nickname") << std::endl;
+			flag = 0;
+			break;
+		}
+		else
+		{
+			std::cout << "Here ELSE" << std::endl;
+			std::cin.clear();
+			std::cin.ignore(std::numeric_limits<std::streamsize>::max(),'\n');
+			std::cout << "Invalid index! Enter a valid index." << std::endl;
+		}
+	} while (flag != 0);
+	while (std::cin.get() != '\n')
+	{
+		std::cout << "here?";
+		continue;}
+}
+
+std::string	Contact::getDetails(std::string type)
 {
 	if (type.compare("firstName") == 0)
-		std::cout << this->firstName << std::endl;
+		return (this->firstName);
+	else if (type.compare("lastName") == 0)
+		return (this->lastName);
+	else if (type.compare("nickname") == 0)
+		return (this->nickname);
+	return (0);
 }
 
 int Contact::addDetails()
@@ -86,14 +180,15 @@ int	main()
 			  << "SEARCH to display a specific contact." << std::endl
 			  << "EXIT to quit and the contacts are lost FOREVER!" << std::endl
 			  << std::endl;
-	do
+
+	while (input != "EXIT")
 	{
 		std::cout << "Enter your command: ";
 		std::getline(std::cin, input);
 		if (input == "ADD")
 			phonebook.addContact();
 		if (input == "SEARCH")
-			std::cout << "Hi SEARCH" << std::endl;
-	} while (input != "EXIT");
+			phonebook.displayContacts();
+	}
 }
 
