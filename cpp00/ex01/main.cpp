@@ -201,5 +201,6 @@ int	main()
 		if (input == "SEARCH")
 			phonebook.displayContacts();
 	}
+	return (0);
 }
 
