@@ -31,7 +31,7 @@
 class Zombie
 {
 	public:
-		Zombie();
+		Zombie(std::string name);
 		~Zombie();
 		void	announce(void);
 
@@ -42,9 +42,10 @@ class Zombie
 Zombie*	newZombie(std::string name);
 void	randomChump(std::string name);
 
-Zombie::Zombie() : name("Default")
+Zombie::Zombie(std::string name)
 {
-	std::cout << name << " constructor called." << std::endl;
+	this->name = name;
+	std::cout << this->name << " constructor called." << std::endl;
 }
 
 Zombie::~Zombie()
@@ -52,7 +53,7 @@ Zombie::~Zombie()
 	std::cout << this->name << " destructor called." << std::endl;
 }
 
-void Zombie::announce()
+void	Zombie::announce()
 {
 	std::cout << this->name;
 	std::cout << ": BraiiiiiiinnnzzzZ..." << std::endl;
@@ -60,23 +61,26 @@ void Zombie::announce()
 
 Zombie* newZombie(std::string name)
 {
-	Zombie *zombie = new Zombie; 
-	this->name = name;
+	Zombie *newZombie = new Zombie(name); 
 
-	return (zombie);
+	return (newZombie);
 }
 
 void randomChump(std::string name)
 {
-	Zombie randomChump;
-	randomChump(name);
+	Zombie randomChump(name);
 	randomChump.announce();
 }
 
 int main()
 {
-	Zombie zombies;
+	Zombie foo("Foo");
+	foo.announce();
 
-	zombies.newZombie("Koen");
-	zombies.randomChump("Mark");
+	Zombie *zombie = newZombie("Koen");
+	zombie->announce();
+	
+	randomChump("Mark");
+
+	delete(zombie);
 }
