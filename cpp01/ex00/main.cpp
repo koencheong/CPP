@@ -26,51 +26,7 @@
 // If you need to return an object from a function and it must
 // outlive the function call, heap allocation is typically required.
 
-#include <iostream>
-
-class Zombie
-{
-	public:
-		Zombie(std::string name);
-		~Zombie();
-		void	announce(void);
-
-	private:
-		std::string name;
-};
-
-Zombie*	newZombie(std::string name);
-void	randomChump(std::string name);
-
-Zombie::Zombie(std::string name)
-{
-	this->name = name;
-	std::cout << this->name << " constructor called." << std::endl;
-}
-
-Zombie::~Zombie()
-{
-	std::cout << this->name << " destructor called." << std::endl;
-}
-
-void	Zombie::announce()
-{
-	std::cout << this->name;
-	std::cout << ": BraiiiiiiinnnzzzZ..." << std::endl;
-}
-
-Zombie* newZombie(std::string name)
-{
-	Zombie *newZombie = new Zombie(name); 
-
-	return (newZombie);
-}
-
-void randomChump(std::string name)
-{
-	Zombie randomChump(name);
-	randomChump.announce();
-}
+#include "Zombie.hpp"
 
 int main()
 {

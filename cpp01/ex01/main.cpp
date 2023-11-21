@@ -14,12 +14,12 @@ class Zombie
 
 Zombie::Zombie()
 {
-	std::cout << this->name << " constructor called." << std::endl;
+	std::cout << this->name << "A zombie is created." << std::endl;
 }
 
 Zombie::~Zombie()
 {
-	std::cout << this->name << " destructor called." << std::endl;
+	std::cout << this->name << " get destroyed." << std::endl;
 }
 
 void	Zombie::announce()
@@ -53,5 +53,5 @@ int main()
 	{
 		horde[i].announce();
 	}
-
+	delete[] horde;
 }
