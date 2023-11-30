@@ -6,6 +6,13 @@ Fixed::Fixed()
 	num = 0;
 }
 
+Fixed(const int n)
+{
+
+}
+
+Fixed(const float n);
+
 Fixed::Fixed(const Fixed& other)
 {
 	std::cout << "Copy constructor called" << std::endl;
