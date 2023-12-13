@@ -5,17 +5,20 @@ int	main()
 	std::string string = "HI THIS IS BRAIN";
 	std::string *stringPTR = &string;
 	std::string &stringREF = string;
+	// std::string stringREF2 = string;
 
 	std::cout << std::endl;
 	std::cout << "------------------------------------------------------" << std::endl;	
 	std::cout << "Memory address of string variable: " << &string << std::endl;
 	std::cout << "Memory address of stringPTR      : " << &stringPTR << std::endl;
 	std::cout << "Memory address of stringREF      : " << &stringREF << std::endl;
+	// std::cout << "Memory address of stringREF2      : " << &stringREF2 << std::endl;
 
 	std::cout << "------------------------------------------------------" << std::endl;
 	std::cout << "String   : " << string << std::endl;
 	std::cout << "StringPTR: " << *stringPTR << std::endl;
 	std::cout << "StringREF: " << stringREF << std::endl;
+	// std::cout << "StringREF2: " << stringREF2 << std::endl;
 	std::cout << "------------------------------------------------------" << std::endl;
 	std::cout << std::endl;
 }
