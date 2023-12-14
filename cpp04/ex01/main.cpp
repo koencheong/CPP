@@ -15,7 +15,18 @@ int main()
 	// 	delete animals[i];
 
 	Dog dog;
-	Dog dog2(dog);
+	std::cout << std::endl;
+	Dog test1(dog);
 
+	// Dog dog2;
+
+	// dog2 = dog;
+	// const Animal* j = new Dog(); 
+	// const Animal* i = new Cat();
+
+	// delete j;//should not create a leak 
+	// delete i;
+
+	// system("leaks a.out");
 	return 0;
 }

@@ -11,18 +11,20 @@ Brain::Brain(const Brain& other)
 	*this = other;
 }
 
+Brain::~Brain(void)
+{
+	std::cout << "test" << std::endl;
+}
+
 Brain& Brain::operator=(const Brain &other)
 {
 	std::cout << "Brain assignment operator called" << std::endl;
 	if (this != &other)
 	{
 		for (int i = 0; i < 100; i++)
-			_ideas[i] = other._ideas[i];
+			this->_ideas[i] = other._ideas[i];
 	}
 	return (*this);
 }
 
-Brain::~Brain()
-{
-	std::cout << "Brain destructor called" << std::endl;
-}
+

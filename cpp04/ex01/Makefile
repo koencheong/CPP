@@ -1,6 +1,6 @@
 NAME = a.out
-CC = g++
-CPPFLAGS = -Wall -Wextra -Werror -std=c++98
+CC = clang++
+CPPFLAGS = -Wall -Wextra -Werror -Wshadow -std=c++98 -fsanitize=address -g
 RM = rm -rf
 
 SRCS = main.cpp Cat.cpp Dog.cpp Animal.cpp Brain.cpp

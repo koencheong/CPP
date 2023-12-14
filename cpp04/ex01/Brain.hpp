@@ -2,6 +2,7 @@
 #define BRAIN_HPP
 
 #include <iostream>
+#include <string>
 
 class Brain
 {
@@ -12,7 +13,7 @@ class Brain
 		Brain();
 		Brain(const Brain& other);
 		Brain& operator=(const Brain& other);
-		~Brain();
+		~Brain(void);
 };
 
 #endif
