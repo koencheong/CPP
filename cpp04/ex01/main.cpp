@@ -15,12 +15,12 @@ int main()
 	// 	delete animals[i];
 
 	Dog dog;
-	std::cout << std::endl;
-	Dog test1(dog);
+	Dog dog2(dog);
 
+	// Dog dog;
 	// Dog dog2;
-
 	// dog2 = dog;
+
 	// const Animal* j = new Dog(); 
 	// const Animal* i = new Cat();
 
