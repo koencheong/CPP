@@ -84,6 +84,48 @@ Fixed	Fixed::operator/ (const Fixed &right)
 	return Fixed(this->toFloat() / right.toFloat());
 }
 
+bool	Fixed::operator> (const Fixed &right) const
+{
+	// std::cout << this->toFloat() << std::endl;
+	// std::cout << right.toFloat() << std::endl;
+	// return (this->toFloat() > right.toFloat());
+	// -----------------------------------------------------------
+
+	// std::cout << this->_num << std::endl;
+	// std::cout << right._num << std::endl;
+	// return (this->_num > right._num);
+
+	// -----------------------------------------------------------
+	// std::cout << this->_num << std::endl;
+	// std::cout << right.getRawBits() << std::endl;
+	// return (this->_num > right.getRawBits());
+}
+
+bool	Fixed::operator< (const Fixed &right)
+{
+	return (this->_num < right._num);
+}
+
+bool	Fixed::operator>= (const Fixed &right)
+{
+	return (this->_num >= right._num);
+}
+
+bool	Fixed::operator<= (const Fixed &right)
+{
+	return (this->_num <= right._num);
+}
+
+bool	Fixed::operator== (const Fixed &right)
+{
+	return (this->_num == right._num);
+}
+
+bool	Fixed::operator!= (const Fixed &right)
+{
+	return (this->_num != right._num);
+}
+
 
 /* Conversion to and from floating-point (Wikipedia)
 To convert a number from floating point to fixed point, 

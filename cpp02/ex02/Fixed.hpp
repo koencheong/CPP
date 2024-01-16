@@ -26,12 +26,12 @@ class Fixed
 		Fixed	operator/ (const Fixed &right);
 
 		// comparison operators
-		// bool	operator> (const Fixed &right);
-		// bool	operator< (const Fixed &right);
-		// bool	operator>= (const Fixed &right);
-		// bool	operator<= (const Fixed &right);
-		// bool	operator== (const Fixed &right);
-		// bool	operator!= (const Fixed &right);
+		bool	operator> (const Fixed &right) const;
+		bool	operator< (const Fixed &right);
+		bool	operator>= (const Fixed &right);
+		bool	operator<= (const Fixed &right);
+		bool	operator== (const Fixed &right);
+		bool	operator!= (const Fixed &right);
 
 		// increment/decrement operators
 
