@@ -2,31 +2,31 @@
 
 Fixed::Fixed()
 {
-	std::cout << "Default constructor called" << std::endl;
+	// std::cout << "Default constructor called" << std::endl;
 	_num = 0;
 }
 
 Fixed::Fixed(const int _intNum)
 {
-	std::cout << "Int constructor called" << std::endl;
+	// std::cout << "Int constructor called" << std::endl;
 	_num = _intNum << _bits;
 }
 
 Fixed::Fixed(const float _floatNum)
 {
-	std::cout << "Float constructor called" << std::endl;
+	// std::cout << "Float constructor called" << std::endl;
 	_num = roundf(_floatNum * static_cast<float>(1 << _bits));
 }
 
 Fixed::Fixed(const Fixed& other)
 {
-	std::cout << "Copy constructor called" << std::endl;
+	// std::cout << "Copy constructor called" << std::endl;
 	*this = other;
 }
 
 Fixed& Fixed::operator=(const Fixed& other)
 {
-	std::cout << "Copy assignment operator called" << std::endl;
+	// std::cout << "Copy assignment operator called" << std::endl;
 	if (this != &other)
 		_num = other.getRawBits();
 	return (*this);
@@ -34,7 +34,7 @@ Fixed& Fixed::operator=(const Fixed& other)
 
 Fixed::~Fixed()
 {
-	std::cout << "Destructor called" << std::endl;
+	// std::cout << "Destructor called" << std::endl;
 }
 
 int		Fixed::getRawBits(void) const
@@ -44,7 +44,7 @@ int		Fixed::getRawBits(void) const
 
 void	Fixed::setRawBits(int const raw)
 {
-	std::cout << "setRawBits member function called" << std::endl;
+	// std::cout << "setRawBits member function called" << std::endl;
 	_num = raw;
 }
 
@@ -63,6 +63,27 @@ std::ostream &operator<<(std::ostream &out, const Fixed &value)
 	out << value.toFloat();
 	return (out);
 }
+
+Fixed	Fixed::operator+ (const Fixed &right)
+{
+	return Fixed(this->toFloat() + right.toFloat());
+}
+
+Fixed	Fixed::operator- (const Fixed &right)
+{
+	return Fixed(this->toFloat() - right.toFloat());
+}
+
+Fixed	Fixed::operator* (const Fixed &right)
+{
+	return Fixed(this->toFloat() * right.toFloat());
+}
+
+Fixed	Fixed::operator/ (const Fixed &right)
+{
+	return Fixed(this->toFloat() / right.toFloat());
+}
+
 
 /* Conversion to and from floating-point (Wikipedia)
 To convert a number from floating point to fixed point, 
