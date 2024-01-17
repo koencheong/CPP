@@ -116,6 +116,32 @@ bool	Fixed::operator!= (const Fixed &right) const
 	return (this->toFloat() != right.toFloat());
 }
 
+Fixed	Fixed::operator++()
+{
+	this->_num++;
+	return (*this);
+}
+
+Fixed	Fixed::operator++(int)
+{
+	Fixed	temp(*this);
+	this->_num++;
+	return (temp);
+}
+
+Fixed	Fixed::operator--()
+{
+	this->_num--;
+	return (*this);
+}
+
+Fixed	Fixed::operator--(int)
+{
+	Fixed	temp(*this);
+	this->_num++;
+	return (temp);	
+}
+
 
 /* Conversion to and from floating-point (Wikipedia)
 To convert a number from floating point to fixed point, 

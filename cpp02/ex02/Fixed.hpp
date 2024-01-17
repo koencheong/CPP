@@ -34,6 +34,27 @@ class Fixed
 		bool	operator!= (const Fixed &right) const;
 
 		// increment/decrement operators
+		// prefix increment ++i
+		Fixed	operator++();
+		// postfix increment i++
+		Fixed	operator++(int); // The int parameter itself is 
+								// a dummy parameter and is not
+								// used in the implementation of
+								// the operator. Its presence is 
+								// a convention to differentiate 
+								// between the two versions of the
+								// increment operator. When you see
+								// int as a parameter in the postfix
+								// increment operator, it's just a 
+								// marker to tell the compiler which 
+								// version to use. The value passed 
+								// as the int parameter is ignored in
+								// the implementation.
+		// prefix decrement --i
+		Fixed	operator--();
+		// postfix decrement i--
+		Fixed	operator--(int);
+
 
 	private:
 		int	_num;
