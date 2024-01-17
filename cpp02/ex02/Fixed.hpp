@@ -20,18 +20,18 @@ class Fixed
 
 		// ******* operator overloading *******
 		// arithmetic operators
-		Fixed	operator+ (const Fixed &right);
-		Fixed	operator- (const Fixed &right);
-		Fixed	operator* (const Fixed &right);
-		Fixed	operator/ (const Fixed &right);
+		Fixed	operator+ (const Fixed &right) const;
+		Fixed	operator- (const Fixed &right) const;
+		Fixed	operator* (const Fixed &right) const;
+		Fixed	operator/ (const Fixed &right) const;
 
 		// comparison operators
 		bool	operator> (const Fixed &right) const;
-		bool	operator< (const Fixed &right);
-		bool	operator>= (const Fixed &right);
-		bool	operator<= (const Fixed &right);
-		bool	operator== (const Fixed &right);
-		bool	operator!= (const Fixed &right);
+		bool	operator< (const Fixed &right) const;
+		bool	operator>= (const Fixed &right) const;
+		bool	operator<= (const Fixed &right) const;
+		bool	operator== (const Fixed &right) const;
+		bool	operator!= (const Fixed &right) const;
 
 		// increment/decrement operators
 

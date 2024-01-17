@@ -64,66 +64,56 @@ std::ostream &operator<<(std::ostream &out, const Fixed &value)
 	return (out);
 }
 
-Fixed	Fixed::operator+ (const Fixed &right)
+Fixed	Fixed::operator+ (const Fixed &right) const
 {
 	return Fixed(this->toFloat() + right.toFloat());
 }
 
-Fixed	Fixed::operator- (const Fixed &right)
+Fixed	Fixed::operator- (const Fixed &right) const
 {
 	return Fixed(this->toFloat() - right.toFloat());
 }
 
-Fixed	Fixed::operator* (const Fixed &right)
+Fixed	Fixed::operator* (const Fixed &right) const
 {
 	return Fixed(this->toFloat() * right.toFloat());
 }
 
-Fixed	Fixed::operator/ (const Fixed &right)
+Fixed	Fixed::operator/ (const Fixed &right) const
 {
 	return Fixed(this->toFloat() / right.toFloat());
 }
 
 bool	Fixed::operator> (const Fixed &right) const
 {
-	// std::cout << this->toFloat() << std::endl;
-	// std::cout << right.toFloat() << std::endl;
-	// return (this->toFloat() > right.toFloat());
-	// -----------------------------------------------------------
-
-	// std::cout << this->_num << std::endl;
-	// std::cout << right._num << std::endl;
-	// return (this->_num > right._num);
-
-	// -----------------------------------------------------------
-	// std::cout << this->_num << std::endl;
-	// std::cout << right.getRawBits() << std::endl;
-	// return (this->_num > right.getRawBits());
+	// std::cout << "c is " << this->toFloat() << std::endl;
+	// std::cout << "d is " << right.toFloat() << std::endl;
+	return (this->toFloat() > right.toFloat());
 }
 
-bool	Fixed::operator< (const Fixed &right)
+bool	Fixed::operator< (const Fixed &right) const
 {
-	return (this->_num < right._num);
+	return (this->toFloat() < right.toFloat());
 }
 
-bool	Fixed::operator>= (const Fixed &right)
+bool	Fixed::operator>= (const Fixed &right) const
 {
-	return (this->_num >= right._num);
+	return (this->toFloat() >= right.toFloat());
 }
 
-bool	Fixed::operator<= (const Fixed &right)
+bool	Fixed::operator<= (const Fixed &right) const
 {
-	return (this->_num <= right._num);
+	return (this->toFloat() <= right.toFloat());
 }
 
-bool	Fixed::operator== (const Fixed &right)
+bool	Fixed::operator== (const Fixed &right) const
 {
-	return (this->_num == right._num);
+	return (this->toFloat() == right.toFloat());
 }
 
-bool	Fixed::operator!= (const Fixed &right)
+bool	Fixed::operator!= (const Fixed &right) const
 {
-	return (this->_num != right._num);
+	return (this->toFloat() != right.toFloat());
 }
 
 

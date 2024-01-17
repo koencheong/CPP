@@ -9,13 +9,13 @@ int main()
 	// std::cout << a << std::endl;
 	// std::cout << b << std::endl;
 
-	Fixed const c( 6.66783f );
-	Fixed const d( 6.66782f );
+	Fixed const c( 6.68f );
+	Fixed const d( 6.67f );
 
-	if (c > d)
-		std::cout << "c > d" << std::endl;
-	else
+	if (c < d)
 		std::cout << "c < d" << std::endl;
+	else
+		std::cout << "c > d" << std::endl;
 	
 	return 0;
 }
