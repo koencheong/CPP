@@ -142,6 +142,25 @@ Fixed	Fixed::operator--(int)
 	return (temp);	
 }
 
+Fixed&	Fixed::min(Fixed& a, Fixed &b)
+{
+	return ((a.getRawBits() < b.getRawBits()) ? a : b);
+}
+
+const Fixed&	Fixed::min(const Fixed& a, const Fixed &b)
+{
+	return ((a.getRawBits() < b.getRawBits()) ? a : b);
+}
+
+Fixed&	Fixed::max(Fixed& a, Fixed &b)
+{
+	return ((a.getRawBits() > b.getRawBits()) ? a : b);
+}
+
+const Fixed&	Fixed::max(const Fixed& a, const Fixed &b)
+{
+	return ((a.getRawBits() > b.getRawBits()) ? a : b);
+}
 
 /* Conversion to and from floating-point (Wikipedia)
 To convert a number from floating point to fixed point, 

@@ -13,6 +13,8 @@ int main()
 	std::cout << a << std::endl;
 	std::cout << b << std::endl;
 
+	std::cout << Fixed::max( a, b ) << std::endl;
+
 	// Fixed const c( 6.68f );
 	// Fixed const d( 6.67f );
 
