@@ -16,7 +16,6 @@ int main(int argc, char **argv)
 		s1 = argv[2];
 		s2 = argv[3];
 
-
 		std::ifstream inputFile(filename);
 		std::ofstream outputFile(filename + ".replace");
 		if (!inputFile.is_open() || !outputFile.is_open())
@@ -40,5 +39,4 @@ int main(int argc, char **argv)
 	}
 	else
 		std::cout << "Error usage: ./a.out <filename> <s1> <s2>";
-
 }

@@ -25,5 +25,6 @@ int main()
 	jim.attack();
 	club.setType("some other type of club");
 	jim.attack();
+	// system ("leaks a.out");
 	return 0;
 }

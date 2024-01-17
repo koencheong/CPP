@@ -37,19 +37,7 @@ class Fixed
 		// prefix increment ++i
 		Fixed	operator++();
 		// postfix increment i++
-		Fixed	operator++(int); // The int parameter itself is 
-								// a dummy parameter and is not
-								// used in the implementation of
-								// the operator. Its presence is 
-								// a convention to differentiate 
-								// between the two versions of the
-								// increment operator. When you see
-								// int as a parameter in the postfix
-								// increment operator, it's just a 
-								// marker to tell the compiler which 
-								// version to use. The value passed 
-								// as the int parameter is ignored in
-								// the implementation.
+		Fixed	operator++(int);
 		// prefix decrement --i
 		Fixed	operator--();
 		// postfix decrement i--
@@ -68,5 +56,18 @@ class Fixed
 };
 
 std::ostream &operator<<(std::ostream &out, const Fixed &value);
+
+/*
+***** prefix increment ++i
+Fixed	operator++();
+***** postfix increment i++
+Fixed	operator++(int);
+The int parameter itself is a dummy parameter and is not used in the
+implementation ofthe operator. Its presence is a convention to differentiate
+between the two versions of theincrement operator. When you seeint as a
+parameter in the postfixincrement operator, it's just a marker to tell the 
+compiler which version to use. The value passed as the int parameter is ignored
+in the implementation.
+*/
 
 #endif
