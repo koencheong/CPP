@@ -58,8 +58,8 @@ void Harl::complain(std::string level)
 	// using typedef
 	typedef void funcPtrs(void);
 
-	const			std::string level_list[4] = {"debug", "info", "warning", "error"};
-	static funcPtrs	Harl::*complaints[4] = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
+	const				std::string level_list[4] = {"debug", "info", "warning", "error"};
+	static	funcPtrs	Harl::*complaints[4] = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
 	for (int i = 0; i < 4; i++)
 	{
 		if (level == level_list[i])

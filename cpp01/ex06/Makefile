@@ -3,7 +3,7 @@ CC = g++
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 RM = rm -rf
 
-SRCS = main.cpp Harl.hpp Harl.cpp
+SRCS = main.cpp Harl.cpp
 all: $(NAME)
 
 $(NAME): $(SRCS)

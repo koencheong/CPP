@@ -17,5 +17,5 @@ int main(int argc, char **argv)
 	else
 		std::cout << "Error usage: ./a.out <filename> <s1> <s2>";
 
-	system("leaks a.out");
+	// system("leaks a.out");
 }
