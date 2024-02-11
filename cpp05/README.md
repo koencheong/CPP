@@ -10,7 +10,7 @@ indicate that the function does not throw any exceptions.
 2. Is the virtual keyword necessary?
 In C++ if you declare a method virtual in the base class then it's virtual also 
 in derived class, even if the virtual keyword is omitted.
-For documentation purposes is however in my opinion nice to repeat it anyway.
+For documentation purposes is however nice to repeat it anyway.
 
 https://stackoverflow.com/questions/22493294/what-is-the-meaning-of-this-header-virtual-const-char-what-const-throw
 ## Why use exceptions? 
@@ -19,7 +19,7 @@ likely to miss errors. When using errno / if-statements, your error handling
 and your normal code are closely intertwined. That way, your code gets messy 
 and it becomes hard to ensure that you have dealt with all errors.
 
-## ```Const``` keyword
+# ```Const``` keyword
 ```
 class C 
 {
@@ -48,7 +48,7 @@ Bureaucrat::Bureaucrat(const std::string name, int grade) : _name(name), _grade(
 }
 ```
 
-## Insertion Operator (<<) Overloading
+# Insertion Operator (<<) Overloading
 Allows you to use ```cout << Bureaucrat``` to display all the information without having
 to write a print function like we normally do.
 ```
