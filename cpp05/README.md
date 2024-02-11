@@ -1,11 +1,11 @@
-# EXCEPTIONS
+# Exceptions
 ```
 virtual const char* what() const throw() { return "message" }
 ```
-1. When designing a void FooFunc() throw(int,char) function, it should only 
-throw integers and characters. On the other hand, an empty throw() is used to 
+1. When designing a ```void FooFunc() throw(int,char)``` function, it should only 
+throw integers and characters. On the other hand, an empty ```throw()``` is used to 
 indicate that the function does not throw any exceptions.
-- noexcept is an improved version of throw(), which is deprecated in C++11. 
+	- ```noexcept``` is an improved version of throw(), which is deprecated in C++11. 
 
 2. Is the virtual keyword necessary?
 In C++ if you declare a method virtual in the base class then it's virtual also 
@@ -13,13 +13,14 @@ in derived class, even if the virtual keyword is omitted.
 For documentation purposes is however in my opinion nice to repeat it anyway.
 
 https://stackoverflow.com/questions/22493294/what-is-the-meaning-of-this-header-virtual-const-char-what-const-throw
-## WHY USE EXCEPTIONS? 
+## Why use exceptions? 
 Using exceptions for error handling makes your code simpler, cleaner, and less 
 likely to miss errors. When using errno / if-statements, your error handling 
 and your normal code are closely intertwined. That way, your code gets messy 
 and it becomes hard to ensure that you have dealt with all errors.
 
-## CONST
+## ```Const``` keyword
+```
 class C 
 {
 	public:
@@ -27,8 +28,9 @@ class C
 	int foo () const;  // don't change the object it's applied to
 	void bar (const std::string& s);  // don't change s
 }
+```
 
-This is wrong bcuz constant variable (const _name) cannot be initialized in constructor.
+Below example is wrong bcuz **constant variable (const _name) cannot be initialized in constructor**.
 ```
 Bureaucrat::Bureaucrat(const std::string name, int grade)
 {
@@ -38,14 +40,16 @@ Bureaucrat::Bureaucrat(const std::string name, int grade)
 }
 ```
 
-Have to use Member Initializer List to initialize!
+Have to use **Member Initializer List** to initialize!
+```
 Bureaucrat::Bureaucrat(const std::string name, int grade) : _name(name), _grade(grade)
 { 
 	...
 }
+```
 
 ## Insertion Operator (<<) Overloading
-Allows you to use "cout << Bureaucrat" to display all the information without having
+Allows you to use ```cout << Bureaucrat``` to display all the information without having
 to write a print function like we normally do.
 ```
 std::ostream& operator<<(std::ostream& output, const Bureaucrat& b)
