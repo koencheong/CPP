@@ -20,27 +20,21 @@ Bureaucrat::Bureaucrat(const std::string name, int grade) : _name(name), _grade(
 		throw GradeTooHighException();
 	if (grade > 150)
 		throw GradeTooLowException();
-	std::cout << "Bureaucrat parameterized constructor called" << std::endl;
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat& other)
 {
-	std::cout << "Bureaucrat copy constructor called" << std::endl;
 	*this = other;
 }
 
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat& other)
 {
-	std::cout << "Bureaucrat assignment operator called" << std::endl;
 	if (this != &other)
 		this->_grade = other.getGrade();
 	return (*this);
 }
 
-Bureaucrat::~Bureaucrat()
-{
-	std::cout << "Bureaucrat destructor called" << std::endl;
-}
+Bureaucrat::~Bureaucrat() {}
 
 std::string	Bureaucrat::getName() const
 {
@@ -64,6 +58,20 @@ void	Bureaucrat::decrementGrade()
 	if (_grade + 1 > 150)
 		throw GradeTooLowException();
 	_grade++;
+}
+
+void	Bureaucrat::signForm(Form& form)
+{
+	try
+	{
+		form.beSigned(*this);
+		std::cout << getName() << " signed " << form.getName() << std::endl;
+	}
+	catch (Form::GradeTooLowException& e)
+	{
+		std::cout << getName() << " couldn't sign " << form.getName()
+		<< " because " << e.what() << std::endl;
+	}
 }
 
 /* 
