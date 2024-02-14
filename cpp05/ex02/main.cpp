@@ -7,7 +7,9 @@ int	main()
 		try
 		{
 			AForm *form1 = new ShrubberyCreationForm("target");
-			std::cout << form1 << std::endl;
+			Bureaucrat bob("Bob", 1);
+			bob.signForm(*form1);
+			form1->execute(bob);
 		}
 		catch(std::exception& e)
 		{

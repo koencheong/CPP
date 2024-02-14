@@ -24,6 +24,11 @@ class AForm
 			public:
 				virtual const char* what() const throw() { return ("[AFORM] Grade too low"); }
 		};
+		class isNotSignedException : public std::exception
+		{
+			public:
+				virtual const char* what() const throw() { return ("[AFORM] Form is not signed"); }
+		};
 
 		// Getters for all the attributes
 		std::string getName() const;
@@ -34,7 +39,7 @@ class AForm
 		void beSigned(const Bureaucrat& bureaucrat);
 
 		// Pure virtual function that the concrete class needs to implement itself
-		void		execute(Bureaucrat const& executor) const;
+		virtual void	execute(Bureaucrat const& executor) const = 0;
 
 	private:
 		const std::string	_name;

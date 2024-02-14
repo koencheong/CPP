@@ -54,7 +54,7 @@ int	AForm::getGradeToExec() const
 	return (_gradeToExec);
 }
 
-void AForm::beSigned(const Bureaucrat& bureaucrat)
+void	AForm::beSigned(const Bureaucrat& bureaucrat)
 {
 	if (bureaucrat.getGrade() <= getGradeToSign())
 		_isSigned = true;
@@ -72,4 +72,10 @@ std::ostream& operator<<(std::ostream& output, const AForm& f)
 		<< std::endl << "3. Grade required to execute: " << f.getGradeToExec()
 		<< std::endl;
 	return (output);
+}
+
+void	AForm::execute(Bureaucrat const& executor) const
+{
+	(void)executor;
+	std::cout << "I'm just a template. I don't execute anything here!" << std::endl;
 }
