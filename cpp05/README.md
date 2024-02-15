@@ -58,3 +58,15 @@ std::ostream& operator<<(std::ostream& output, const Bureaucrat& b)
 	return (output);
 }
 ```
+
+# rand() and srand(x)
+rand() is used to generate random numbers. However, this function does not truly generate 
+random numbers because a mathematical formula is used to generate the values. (referred as pseudo-random generation)
+The mathematical algorithm which when given a starting number (called the "seed"), always generates the 
+same sequence of numbers.  Since the same sequence is generated each time the seed remains the same, the rand( )
+function generates a pseudo-random sequence.  
+**Therefore, to prevent the same sequence from being generated each time, use srand(x) to change the seed value.**  
+srand(x) is used to set the starting value (seed) for generating a sequence of pseudo-random integer values.  
+Using **srand(time(NULL))** makes use of the computer's internal clock to control the choice of the seed.
+Since time is continually changing, the seed is forever changing. Remember, if the seed number remains the same,
+the sequence of numbers will be repeated for each run of the program.
