@@ -3,6 +3,7 @@
 
 #include "AForm.hpp"
 #include <fstream>
+#include <cstdlib>
 
 class RobotomyRequestForm : public AForm
 {
@@ -11,7 +12,7 @@ class RobotomyRequestForm : public AForm
 		RobotomyRequestForm(const std::string &target);
 		virtual ~RobotomyRequestForm();
 		RobotomyRequestForm(const RobotomyRequestForm& other);
-		RobotomyRequestForm& operator=(const ShrubberyCreationForm& other);
+		RobotomyRequestForm& operator=(const RobotomyRequestForm& other);
 
 		virtual void	execute(Bureaucrat const& executor) const;
 

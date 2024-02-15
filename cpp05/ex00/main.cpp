@@ -15,11 +15,11 @@ int	main()
 		}
 		catch(const Bureaucrat::GradeTooHighException& e)
 		{
-			std::cout << e.what() << std::endl;
+			std::cerr << e.what() << std::endl;
 		}
 		catch(const Bureaucrat::GradeTooLowException& e)
 		{
-			std::cout << e.what() << std::endl;
+			std::cerr << e.what() << std::endl;
 		}
 	}
 
@@ -35,11 +35,11 @@ int	main()
 		}
 		catch(const Bureaucrat::GradeTooHighException& e)
 		{
-			std::cout << e.what() << std::endl;
+			std::cerr << e.what() << std::endl;
 		}
 		catch(std::exception& e)
 		{
-			std::cout << e.what() << std::endl;
+			std::cerr << e.what() << std::endl;
 		}
 	}
 }

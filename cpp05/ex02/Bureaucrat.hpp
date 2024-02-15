@@ -32,6 +32,7 @@ class Bureaucrat
 		};
 
 		void		signForm(AForm& Aform);
+		void		executeForm(AForm const& form);
 
 	private:
 		const std::string	_name; // only name is constant

@@ -40,5 +40,9 @@ void	RobotomyRequestForm::execute(Bureaucrat const& executor) const
 		return ;
 	}
 
+	std::cout << "* Making clanking, whirring, and buzzing noises *" << std::endl;
 
+	srand(time(NULL));
+	int result = rand() % 2;
+	std::cout << _target << (result == 1 ? " has been robotomized! [SUCCESSFUL]" : " remains unrobotomized... [FAILED]") << std::endl;
 }

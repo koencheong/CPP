@@ -74,6 +74,20 @@ void	Bureaucrat::signForm(AForm& Aform)
 	}
 }
 
+void	Bureaucrat::executeForm(AForm const& form)
+{
+	try
+	{
+		form.execute(*this);
+		std::cout << getName() << " executed " << form.getName() << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << std::endl;
+	}
+	
+}
+
 /* 
 ------------- Insertion Operator (<<) Overloading -------------
 Allows you to use "cout << Bureaucrat" to display all the information
